@@ -1,0 +1,40 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: #3f3f3f;
+
+}
+
+h1{
+     color: white;
+ }
+
+h3 {
+    color: red;
+}
+
+hr{
+    color: white;
+}
+
+label{
+    color: white;
+}
+
+dl{
+    color: white;
+}

@@ -1,0 +1,32 @@
+﻿@model ProjetoFaculdade.Models.Usuario
+
+@{
+    ViewData["Title"] = "Detalhes";
+}
+<br />
+<h1>Detalhes Usuário</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Login)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Login)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nivel)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nivel)
+        </dd>
+    </dl>
+</div>
+

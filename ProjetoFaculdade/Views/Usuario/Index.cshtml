@@ -1,0 +1,92 @@
+﻿@model IEnumerable<ProjetoFaculdade.Models.Usuario>
+@{
+    ViewData["Title"] = "Listagem de Usuários";
+}
+
+<br />
+<h1>Usuários</h1>
+<br />
+<p align="right">
+    <a class="btn btn-outline-dark" asp-action="Create">+</a>
+</p>
+<table class="table table-striped table-dark">
+    <thead>
+        <tr>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Login)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Nivel)
+            </th>
+            <th scope="col">
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr> 
+                <td>
+                    @item.Nome
+                </td>
+                <td>
+                    @item.Login
+                </td>
+                <td>
+                    @item.Nivel
+                </td>
+
+                <td>
+                    <a class="btn btn-outline-primary btn-sm edit" data-id="@item.Id">
+                        Editar
+                    </a> |
+                    <a class="btn btn-outline-info btn-sm details" data-id="@item.Id">
+                        Detalhes
+                    </a> |
+                    <a class="btn btn-outline-danger btn-sm delete" data-id="@item.Id">
+                        Apagar
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="modal fade" id="modal_usuario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div id="modal"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $(function () {
+            $(".details").click(function () {
+                var id = $(this).attr("data-id");
+                $("#modal").load("/Usuario/Details/" + id, function () {
+                    $("#modal_usuario").modal("show");
+                })
+            });
+            $(".delete").click(function () {
+                var id = $(this).attr("data-id");
+                $("#modal").load("/Usuario/Delete/" + id, function () {
+                    $("#modal_usuario").modal("show");
+                })
+            });
+            $(".edit").click(function () {
+                var id = $(this).attr("data-id");
+                $("#modal").load("/Usuario/Edit/" + id, function () {
+                    $("#modal_usuario").modal("show");
+                })
+            });
+        })
+    </script>
+}
